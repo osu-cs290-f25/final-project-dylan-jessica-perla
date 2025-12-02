@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Game</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/game.css">
+        <script src="/game.js"></script>
+    </head>
+    <body>
+        <title>Game</title>
+        <h1 class = "game-title"> Welcome to our Game!</h1>
+        <main>
+            <div class = "info-container">
+                <h1 class = "lives-container"> Lives: #</h1>
+                <h1 class = "score-container"> Score: # pts</h1>
+            </div>
+            <canvas class="game-canvas">  </canvas>
+            <div class = "highscore-container"> Highscores:
+                <!-- <h2 class = "highscore"> 1. # - ### pts</h2>
+                <h2 class = "highscore"> 2. # - ### pts</h2>
+                <h2 class = "highscore"> 3. # - ### pts</h2>
+                <h2 class = "highscore"> 4. # - ### pts</h2>
+                <h2 class = "highscore"> 5. # - ### pts</h2>
+                <h2 class = "highscore"> 6. # - ### pts</h2>
+                <h2 class = "highscore"> 7. # - ### pts</h2>
+                <h2 class = "highscore"> 8. # - ### pts</h2>
+                <h2 class = "highscore"> 9. # - ### pts</h2>
+                <h2 class = "highscore"> 10. # - ### pts</h2> -->
+                <% Object.keys(scores).forEach(function (score) { %>
+                    <h2 class = "highscore"><%= scores[score].name %> - <%= scores[score].score %> pts</h2>
+                <% }) %>
+            </div>
+        </main>
+    </body>
+</html>
