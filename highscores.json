@@ -10,5 +10,9 @@
   "user3": {
     "name": "user3",
     "score": "3"
+  },
+  "user4": {
+    "name": "user4",
+    "score": "4"
   }
 }
