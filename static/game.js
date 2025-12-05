@@ -2,9 +2,9 @@
 function saveHighscore() {
     console.log("== saveHighscore() started.")
 
-    var testName = "user4"
-    var testScore = "4"
-    var reqURL = "addScore"
+    var testName = "user5"
+    var testScore = "5"
+    var reqURL = "/addScore"
 
     fetch(reqURL, {
         method: "POST",
@@ -16,11 +16,18 @@ function saveHighscore() {
             "Content-Type": "application/json"
         }
     }).then(function (res) {
+        console.log("== then() after fetch() started.")
         if (res.status === 200) {
+            console.log("== Status === 200.")
+            console.log("== window.templates.highscore:", window.templates.highscore)
             var highscoreHTML = window.templates.highscore({
-                name: testName,
-                score: testScore
+                highscore: {
+                    name: testName,
+                    score: testScore
+                }
             })
+            console.log("== highscoreHTML successfully created.")
+            console.log("== highscoreHTML:", highscoreHTML)
             var highscoreContainer = document.querySelector(".highscore-container")
             highscoreContainer.insertAdjacentHTML("beforeend", highscoreHTML)
         } else {
@@ -34,4 +41,4 @@ function saveHighscore() {
 }
 
 console.log("== game.js loaded.")
-saveHighscore()
+window.addEventListener("DOMContentLoaded", saveHighscore)
