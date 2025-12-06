@@ -6,19 +6,18 @@
 <html> 
     <body>
         <title>Game</title>
-        <h1 class = "game-title"> Welcome to our Game!</h1>
+        <h1 class = "game-title"> Welcome to the Memory Game!</h1>
         <main>
             <div class = "info-container">
-                <h1 class = "lives-container"> Lives: #</h1>
                 <h1 class = "score-container"> Score: # pts</h1>
             </div>
             <div class = "button-container">
-                <button class = "action-button"> Action 1 </button>
-                <button class = "action-button"> Action 2 </button>
-                <button class = "action-button"> Action 3 </button>
-                <button class = "action-button"> Action 4 </button>
-                <button class = "action-button"> Action 5 </button>
-                <button class = "action-button"> Action 6 </button>
+                <button class = "action-button" id = "red" style = "background-color: red;"> RED </button>
+                <button class = "action-button" id = "orange" style = "background-color: orange;"> ORANGE </button>
+                <button class = "action-button" id = "yellow" style = "background-color: yellow;"> YELLOW </button>
+                <button class = "action-button" id = "green"style = "background-color: green;"> GREEN </button>
+                <button class = "action-button" id = "blue" style = "background-color: blue;"> BLUE </button>
+                <button class = "action-button" id = "purple" style = "background-color: purple;"> PURPLE </button>
             </div>
             <div class = "highscore-container"> Highscores:
                 <h2 class = "highscore"> 1. # - ### pts</h2>
@@ -38,7 +37,7 @@
                     <h2>Game Over!</h2>
                     <p>Your final score is: ### pts</p>
                     <p>Enter your name to save your score:</p>
-                    <input type="text" id="player-name" name="player-name" maxlength="
+                    <input type="text" id="player-name" name="player-name">
                 </div>
         </main>
     </body>
