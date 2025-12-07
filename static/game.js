@@ -13,6 +13,7 @@ let playerScore = 0;
 let playing = false;
 let playerHighscores = [];
 
+modal.style.display = "none";
 
 function gameStart(){
     sequence = [];
@@ -73,7 +74,6 @@ function updateScore(){
 function gameOver(){
     playing = false;
     modal.style.display = "block";
-    
     finalScore.textContent = 'Your final score is: ${playerScore} pts';
 
 }
