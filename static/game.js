@@ -68,13 +68,13 @@ function playerInput(color){
 }
 
 function updateScore(){
-    scoreDisplay.textContent = 'Score: ${playerScore} pts';
+    scoreDisplay.textContent = `Score: ${playerScore} pts`;
 }
 
 function gameOver(){
     playing = false;
     modal.style.display = "block";
-    finalScore.textContent = 'Your final score is: ${playerScore} pts';
+    finalScore.textContent = `Your final score is: ${playerScore} pts`;
 
 }
 
