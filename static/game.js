@@ -4,7 +4,7 @@ var scoreDisplay = document.querySelector(".score-container");
 var modal = document.getElementById("game-over-modal");
 var closeButton = document.querySelector(".close-button");
 var playerName = document.getElementById("player-name");
-var finalScore = document.querySelector("p");
+var finalScore = modal.querySelector("p");
 
 
 let sequence = [];
@@ -43,7 +43,7 @@ function round(){
                 button.style.boxShadow = "";
             }, 800);
         }, delay);
-        delay += 500;
+        delay += 1000;
     });
 }
 
