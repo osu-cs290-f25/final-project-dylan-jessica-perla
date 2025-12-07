@@ -76,6 +76,23 @@ function gameOver(){
     modal.style.display = "block";
     finalScore.textContent = `Your final score is: ${playerScore} pts`;
 
+    let name = playerNam.value.trim() || "No-name";
+
+    playerHighscores.push({name: name, score: playerScore});
+    playerHighscores.sort((firstScore, secondScore)=>secondScore.score - firstScore.score);
+    playerHighscores = playerHighscores.slice(0, 10);
+
+    highscoreUpdate();
+}
+
+function highscoreUpdate(){
+    var highscoreEntries = document.querySelectorAll(".highscore");
+
+    playerHighscores.forEach((entry, pos)=>{
+        if (highscoreEntries[pos]){
+            highscoreEntries[pos].textContent = `${pos + 1}. ${entry.name}.${entry.score} pts`;
+        }
+    });
 }
 
 actionButtons.forEach(button =>{
