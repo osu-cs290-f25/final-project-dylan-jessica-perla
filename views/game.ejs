@@ -21,6 +21,11 @@
                 <button class = "action-button" id = "blue" style = "background-color: blue;"> BLUE </button>
                 <button class = "action-button" id = "purple" style = "background-color: purple;"> PURPLE </button>
             </div>
+            <div class="controls">
+    <button id="start-btn">Start Game</button>
+    <button id="save-btn">Save Score</button>
+</div>
+
             <div class = "highscore-container"> Highscores:
                 <% Object.keys(highscores).forEach(function (highscore) { %>
                     <%- include("partials/highscore", {
@@ -28,7 +33,8 @@
                     }) %>
                 <% }) %>
             </div>
-            <modal id="game-over-modal">
+            <div id="game-over-modal">
+
                 <div class="modal-content">
                     <span class="close-button">&times;</span>
                     <h2>Game Over!</h2>
@@ -36,6 +42,7 @@
                     <p>Enter your name to save your score:</p>
                     <input type="text" id="player-name" name="player-name">
                 </div>
+
         </main>
         
         <!-- Moved <script> tags here so they'll run after all the HTML content has loaded. -->

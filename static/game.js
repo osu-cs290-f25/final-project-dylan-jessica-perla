@@ -114,7 +114,7 @@ function gameOver(){
     modal.style.display = "block";
     finalScore.textContent = `Your final score is: ${playerScore} pts`;
 
-    let name = playerName.value.trim() || "No-name"; // Changed from "playerNam" to "playerName"
+    let name = playerName.value.trim() || "No-name"; 
 
     playerHighscores.push({name: name, score: playerScore});
     playerHighscores.sort((firstScore, secondScore)=>secondScore.score - firstScore.score);
@@ -122,16 +122,26 @@ function gameOver(){
 
     console.log("== Line right before highscoreUpdate() call.")
 
-    // highscoreUpdate(); <-- Tries to update before the user has typed anything in.
+    
 }
 
 actionButtons.forEach(button =>{
     button.addEventListener("click", () => playerInput(button.id));
 });
 
+document.getElementById("start-btn").addEventListener("click", () => {
+    modal.style.display = "none";
+    playerName.value = "";
+    gameStart();
+});
+
+document.getElementById("save-btn").addEventListener("click", () => {
+    modal.style.display = "block";
+});
+
 closeButton.addEventListener("click", ()=>{
     modal.style.display = "none";
-    highscoreUpdate() // Moved here to update after the user is done typing.
+    highscoreUpdate();
 });
 
 gameStart();

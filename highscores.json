@@ -14,5 +14,17 @@
   "Jessica": {
     "name": "Jessica",
     "score": "6"
+  },
+  "meet": {
+    "name": "meet",
+    "score": "0"
+  },
+  "Iqra": {
+    "name": "Iqra",
+    "score": "5"
+  },
+  "dominos": {
+    "name": "dominos",
+    "score": "2"
   }
 }
