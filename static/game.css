@@ -21,22 +21,43 @@ main {
     display: flex;
 }
 
-.info-container {
-    max-width: 25%;
-    font-size: 48px;
+.score-container {
+    width: 200px;
+    height: 100px;
+    font-size: 48px; /* Added a semicolon. */
     background-color: rgb(255, 255, 255);
+    color: black; /* Added to make the score visible. */
     margin-right: 30px;
+    margin-left: 30px;
+    margin: 5px;
+    border-radius: 15px;
+    border: white 2px solid;
+    text-align: center;
 }
 
 .button-container{
-    width: 50%;
+    max-width: 70%;
+    justify-content: center;
 }
 
 .action-button {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     margin: 5px;
     border-radius: 15px;
+    border: white 2px solid;
+    transition: filter 150ms ease, transform 120ms ease;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+    font-style: normal;
+    color: white;
+}
+
+.action-button:hover {
+    filter: brightness(0.85); /* lower value = darker; try 0.7 for stronger effect */
+    transform: translateY(-2px); /* optional subtle lift */
+    cursor: pointer;
 }
 
 .highscore-container {
@@ -44,7 +65,9 @@ main {
     display: flex;
     flex-direction: column;
     align-content: center;
-    font-size: 48px    
+    font-size: 36px;
+    margin-right: 30px;
+    margin-left: 15px;
 }
 
 .highscore {
@@ -53,8 +76,9 @@ main {
     margin-bottom: 0px;
 }
 
-modal {
+#game-over-modal { /* Changed from "modal" to the modal's ID. */
     display: none;
+    text-align: center;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -64,4 +88,5 @@ modal {
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
+    font-size: 36px;
 }
