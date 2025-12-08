@@ -119,10 +119,6 @@ function gameOver(){
     playerHighscores.push({name: name, score: playerScore});
     playerHighscores.sort((firstScore, secondScore)=>secondScore.score - firstScore.score);
     playerHighscores = playerHighscores.slice(0, 10);
-
-    console.log("== Line right before highscoreUpdate() call.")
-
-    
 }
 
 actionButtons.forEach(button =>{
@@ -136,12 +132,13 @@ document.getElementById("start-btn").addEventListener("click", () => {
 });
 
 document.getElementById("save-btn").addEventListener("click", () => {
-    modal.style.display = "block";
+    // modal.style.display = "block";
+    highscoreUpdate();
 });
 
 closeButton.addEventListener("click", ()=>{
     modal.style.display = "none";
-    highscoreUpdate();
+    // highscoreUpdate();
 });
 
 gameStart();
