@@ -11,7 +11,7 @@ app.use(express.static("static"))
 
 app.get("/", function (req, res, next) {
     res.status(200).render("game", {
-        scores: highscores
+        highscores: highscores
     })
 })
 
