@@ -71,36 +71,74 @@ function updateScore(){
     scoreDisplay.textContent = `Score: ${playerScore} pts`;
 }
 
+function highscoreUpdate() {
+    console.log("== highscoreUpdate() started.")
+
+    var reqURL = "/addScore"
+    fetch(reqURL, {
+        method: "POST",
+        body: JSON.stringify({
+            name: playerName.value,
+            score: playerScore.toString()
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (res) {
+        console.log("== then() after fetch() started.")
+        if (res.status === 200) {
+            console.log("== Status === 200.")
+            console.log("== window.templates.highscore:", window.templates.highscore)
+            var highscoreHTML = window.templates.highscore({
+                highscore: {
+                    name: playerName.value,
+                    score: playerScore.toString()
+                }
+            })
+            console.log("== highscoreHTML successfully created.")
+            console.log("== highscoreHTML:", highscoreHTML)
+            var highscoreContainer = document.querySelector(".highscore-container")
+            highscoreContainer.insertAdjacentHTML("beforeend", highscoreHTML)
+        } else {
+            alert("An error occurred while saving the score. (1)")
+        }
+    }).catch(function (err) {
+        alert("An error occurred while saving the score. (2)")
+    })
+
+    console.log("== highscoreUpdate() finished.")
+}
+
 function gameOver(){
     playing = false;
     modal.style.display = "block";
     finalScore.textContent = `Your final score is: ${playerScore} pts`;
 
-    let name = playerNam.value.trim() || "No-name";
+    let name = playerName.value.trim() || "No-name"; 
 
     playerHighscores.push({name: name, score: playerScore});
     playerHighscores.sort((firstScore, secondScore)=>secondScore.score - firstScore.score);
     playerHighscores = playerHighscores.slice(0, 10);
-
-    highscoreUpdate();
-}
-
-function highscoreUpdate(){
-    var highscoreEntries = document.querySelectorAll(".highscore");
-
-    playerHighscores.forEach((entry, pos)=>{
-        if (highscoreEntries[pos]){
-            highscoreEntries[pos].textContent = `${pos + 1}. ${entry.name}.${entry.score} pts`;
-        }
-    });
 }
 
 actionButtons.forEach(button =>{
     button.addEventListener("click", () => playerInput(button.id));
 });
 
+document.getElementById("start-btn").addEventListener("click", () => {
+    modal.style.display = "none";
+    playerName.value = "";
+    gameStart();
+});
+
+document.getElementById("save-btn").addEventListener("click", () => {
+    // modal.style.display = "block";
+    highscoreUpdate();
+});
+
 closeButton.addEventListener("click", ()=>{
     modal.style.display = "none";
+    // highscoreUpdate();
 });
 
 gameStart();

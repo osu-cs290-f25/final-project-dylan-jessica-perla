@@ -24,8 +24,9 @@ main {
 .score-container {
     width: 200px;
     height: 100px;
-    font-size: 48px
+    font-size: 48px;
     background-color: rgb(255, 255, 255);
+    color: black; 
     margin-right: 30px;
     margin-left: 30px;
     margin: 5px;
@@ -54,8 +55,8 @@ main {
 }
 
 .action-button:hover {
-    filter: brightness(0.85); /* lower value = darker; try 0.7 for stronger effect */
-    transform: translateY(-2px); /* optional subtle lift */
+    filter: brightness(0.85); 
+    transform: translateY(-2px); 
     cursor: pointer;
 }
 
@@ -75,7 +76,24 @@ main {
     margin-bottom: 0px;
 }
 
-modal {
+#start-btn, #save-btn {
+    background-color: #f67811;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 36px;
+    padding: 15px 40px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+#start-btn:hover, #save-btn:hover {
+    transform: scale(1.1);
+    background-color: #ff9b3d; 
+}
+
+#game-over-modal { 
     display: none;
     text-align: center;
     position: fixed;
@@ -88,4 +106,19 @@ modal {
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
     font-size: 36px;
+}
+
+.action-button {
+    transition: filter 150ms ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.action-button:hover {
+    transform: scale(1.08); 
+    filter: brightness(0.75); 
+    box-shadow: 0 8px 15px rgba(255,255,255,0.5);
+}
+
+.action-button:active {
+    transform: scale(0.95); 
+    box-shadow: 0 5px 10px rgba(255,255,255,0.3);
 }
